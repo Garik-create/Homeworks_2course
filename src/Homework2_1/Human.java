@@ -9,15 +9,15 @@ public class Human {
         if (birthdayDate >= 0) {
             this.birthdayDate = birthdayDate;
         } else {
-            this.birthdayDate = 0;
+            this.birthdayDate = Math.abs(birthdayDate);
         }
-        if (name != null) {
+        if (name!=null) {
             this.name = name;
         } else {
             this.name = "Информация не указана";
         }
 
-        if (livingPlace != null) {
+        if (livingPlace!=null) {
             this.livingPlace = livingPlace;
         } else {
             this.livingPlace = "Информация не указана";
@@ -29,23 +29,10 @@ public class Human {
         }
     }
 
-//    Human(int birthdayDate, String livingPlace, String job) {
-//        this(birthdayDate, "Информация не указана", livingPlace, job);
-//    }
-
-//    Human (int birthdayDate, String name, String job) {
-//        this(birthdayDate, name, "Информация не указана", job);
-//    }
-
-//    Human(int birthdayDate, String name, String livingPlace) {
-//        this(birthdayDate, name, livingPlace,"Информация не указана");
-//    }
-
-
     void printIntroduce() {
-        System.out.printf(
-                "\nПривет! Меня зовут %s. Я из города %s. Я родился в %d году. Я работаю на должности %s. Будем знакомы!",
-                name, livingPlace, birthdayDate, job);
+        System.out.println(
+                "Привет! Меня зовут " +name+". Я из города "+livingPlace+" Я родился "+birthdayDate+" году. Я работаю на должности "+job+". Будем знакомы!" );
     }
+
 }
 
