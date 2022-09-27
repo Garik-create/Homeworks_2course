@@ -1,9 +1,9 @@
 package Homework2_1;
 
 public class Human {
-    int birthdayDate;
+    private int birthdayDate;
     String name;
-    String livingPlace;
+    private String livingPlace;
     String job;
     Human(int birthdayDate, String name, String livingPlace, String job) {
         if (birthdayDate >= 0) {
@@ -26,6 +26,30 @@ public class Human {
             this.job = job;
         } else {
             this.job = "Информация не указана";
+        }
+    }
+
+    public int getBirthdayDate() {
+        return birthdayDate;
+    }
+
+    public void setBirthdayDate(int birthdayDate) {
+        if (birthdayDate != 0 && birthdayDate >= 0) {
+            this.birthdayDate = birthdayDate;
+        } else {
+            this.birthdayDate = 0;
+        }
+    }
+
+    public String getLivingPlace() {
+        return livingPlace;
+    }
+
+    public void setLivingPlace(String livingPlace) {
+        if (livingPlace!=null && !livingPlace.isEmpty() && !livingPlace.isBlank()) {
+            this.livingPlace = livingPlace;
+        } else {
+            this.livingPlace = "Информация не указана";
         }
     }
 
