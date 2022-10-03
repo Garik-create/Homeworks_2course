@@ -6,14 +6,14 @@ public class Human {
     private String livingPlace;
     String job;
     Human(int birthdayDate, String name, String livingPlace, String job) {
-        this.birthdayDate = this.setBirthdayDate(birthdayDate);
+        setBirthdayDate(birthdayDate);
         if (name!=null) {
             this.name = name;
         } else {
             this.name = "Информация не указана";
         }
 
-        this.livingPlace = this.setLivingPlace(livingPlace);
+        setLivingPlace(livingPlace);
 
         if (job != null) {
             this.job = job;
@@ -26,26 +26,24 @@ public class Human {
         return birthdayDate;
     }
 
-    public int setBirthdayDate(int birthdayDate) {
+    public void setBirthdayDate(int birthdayDate) {
         if (birthdayDate != 0 && birthdayDate >= 0) {
             this.birthdayDate = birthdayDate;
         } else {
             this.birthdayDate = 0;
         }
-        return this.birthdayDate;
     }
 
     public String getLivingPlace() {
         return livingPlace;
     }
 
-    public String setLivingPlace(String livingPlace) {
+    public void setLivingPlace(String livingPlace) {
         if (livingPlace!=null && !livingPlace.isBlank()) {
             this.livingPlace = livingPlace;
         } else {
             this.livingPlace = "Информация не указана";
         }
-        return livingPlace;
     }
 
     void printIntroduce() {
