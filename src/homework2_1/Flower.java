@@ -9,11 +9,11 @@ public class Flower {
 
     Flower(String name, String flowerColor, String country, double cost, int lifeSpan) {
         this.name = name;
-        this.flowerColor = this.setFlowerColor(flowerColor);
-        this.country = this.setCountry(country);
-        this.cost = this.setCost(cost);
+        setFlowerColor(flowerColor);
+        setCountry(country);
+        setCost(cost);
 
-        if (lifeSpan > 0 && lifeSpan % 1 == 0) {
+        if (lifeSpan > 0) {
             this.lifeSpan = lifeSpan;
         } else if (lifeSpan == 0) {
             this.lifeSpan = 3;
@@ -32,33 +32,30 @@ public class Flower {
         return flowerColor;
     }
 
-    public String setFlowerColor(String flowerColor) {
+    public void setFlowerColor(String flowerColor) {
         if (flowerColor != null && !flowerColor.isBlank()) {
             this.flowerColor = flowerColor;
         }
-        return this.flowerColor;
     }
 
     public String getCountry() {
         return country;
     }
 
-    public String setCountry(String country) {
+    public void setCountry(String country) {
         if (country != null && !country.isBlank()) {
             this.country = country;
         }
-        return this.country;
     }
 
     public double getCost() {
         return cost;
     }
 
-    public double setCost(double cost) {
+    public void setCost(double cost) {
         if (cost > 0) {
             this.cost = cost;
         }
-        return this.cost;
     }
 
 //    @Override
