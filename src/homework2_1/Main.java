@@ -1,7 +1,6 @@
-package Homework2_1;
+package homework2_1;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,8 +21,8 @@ public class Main {
         phion.printFlowers();
         hipsophill.printFlowers();
 
-        System.out.printf("Стоимость букета составит: %.2f рублей\n", countBucketCost(roses, chrizantems, phions,
-                hipsophills, rose.getCost(), chrizantem.getCost(), phion.getCost(), hipsophill.getCost()) * 1.1);
+        System.out.printf("Стоимость букета составит: %.2f рублей.\n",countBucketCost(roses, chrizantems, phions,
+                hipsophills, rose.getCost(), chrizantem.getCost(), phion.getCost(), hipsophill.getCost()));
 
         int[] flowers = new int[]{roses, chrizantems, phions, hipsophills};
 
@@ -51,20 +50,24 @@ public class Main {
 
     }
 
-    public static double countBucketCost(int roseAmount,
-                                         int chrizantemAmount,
-                                         int phionAmount,
-                                         int hipsophillAmount,
-                                         double roseCost,
-                                         double chrizantemCost,
-                                         double phionCost,
-                                         double hipsophillCost) {
-        return roseAmount * roseCost + chrizantemAmount * chrizantemCost + phionAmount * phionCost +
-                hipsophillAmount * hipsophillCost;
+    private static double countBucketCost(int roseAmount,
+                                        int chrizantemAmount,
+                                        int phionAmount,
+                                        int hipsophillAmount,
+                                        double roseCost,
+                                        double chrizantemCost,
+                                        double phionCost,
+                                        double hipsophillCost)
+    {
+        return (roseAmount * roseCost + chrizantemAmount * chrizantemCost + phionAmount * phionCost +
+                hipsophillAmount * hipsophillCost) * 1.1;
+
 
     }
 
-    public static int findMinLifeSpan(int[] lifeSpan ){
+//    private static float countBucketCost2()
+
+    private static int findMinLifeSpan(int[] lifeSpan) {
         int minLifeSpan = lifeSpan[0];
         for (int value : lifeSpan) {
             if (value < minLifeSpan) {

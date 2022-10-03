@@ -1,4 +1,4 @@
-package Homework2_1;
+package homework2_1;
 
 public class Flower {
     String name;
@@ -9,21 +9,10 @@ public class Flower {
 
     Flower(String name, String flowerColor, String country, double cost, int lifeSpan) {
         this.name = name;
-        if (flowerColor != null && !flowerColor.isBlank() && !flowerColor.isEmpty()) {
-            this.flowerColor = flowerColor;
-        } else {
-            this.flowerColor = "White";
-        }
-        if (country != null && !country.isEmpty() && !country.isBlank()) {
-            this.country = country;
-        } else {
-            this.country = "Russia";
-        }
-        if (cost > 0) {
-            this.cost = cost;
-        } else {
-            this.cost = 1;
-        }
+        this.flowerColor = this.setFlowerColor(flowerColor);
+        this.country = this.setCountry(country);
+        this.cost = this.setCost(cost);
+
         if (lifeSpan > 0 && lifeSpan % 1 == 0) {
             this.lifeSpan = lifeSpan;
         } else if (lifeSpan == 0) {
@@ -33,40 +22,43 @@ public class Flower {
         }
     }
 
+    public void printFlowers() {
+        System.out.printf(" %s, страна: %s, стоимость: %.2f рублей, срок стояния: %d дней.\n", name, country,
+                cost, lifeSpan);
+
+    }
+
     public String getFlowerColor() {
         return flowerColor;
     }
 
-    public void setFlowerColor(String flowerColor) {
-        if (flowerColor != null && !flowerColor.isBlank() && !flowerColor.isEmpty()) {
+    public String setFlowerColor(String flowerColor) {
+        if (flowerColor != null && !flowerColor.isBlank()) {
             this.flowerColor = flowerColor;
         }
+        return this.flowerColor;
     }
 
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        if (country != null && !country.isEmpty() && !country.isBlank()) {
+    public String setCountry(String country) {
+        if (country != null && !country.isBlank()) {
             this.country = country;
         }
+        return this.country;
     }
 
     public double getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
+    public double setCost(double cost) {
         if (cost > 0) {
             this.cost = cost;
         }
-    }
-
-    public void printFlowers() {
-        System.out.printf(" %s, страна: %s, стоимость: %.2f рублей, срок стояния: %d дней.\n", name, country,
-                cost, lifeSpan);
-
+        return this.cost;
     }
 
 //    @Override
