@@ -1,14 +1,19 @@
 package inheritance_hw3;
 
-public class Birds extends Animals {
+public abstract class Bird extends Animal {
     private String livingEnvironment;
 
-    public Birds(String animalName, Integer age, String livingEnvironment) {
+    public Bird(String animalName, Integer age, String livingEnvironment) {
         super(animalName, age);
         setLivingEnvironment(livingEnvironment);
     }
 
-    public void eat() {
+    public abstract void eat();
+
+
+
+    @Override
+    public void go() {
 
     }
 
@@ -22,5 +27,14 @@ public class Birds extends Animals {
         } else {
             this.livingEnvironment = "Не указана";
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bird bird = (Bird) o;
+        return getLivingEnvironment().equals(bird.getLivingEnvironment());
     }
 }

@@ -1,12 +1,19 @@
 package inheritance_hw3;
 
-public class NotFlying extends Birds {
+import java.util.Arrays;
 
-    String sortOfMotion;
+public class NotFlying extends Bird {
+
+    private String sortOfMotion;
 
     public NotFlying(String animalName, Integer age, String livingEnvironment, String sortOfMotion) {
         super(animalName, age, livingEnvironment);
         setSortOfMotion(sortOfMotion);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Поклевать семена, или поймать рыбку.");
     }
 
     public void go() {
@@ -28,6 +35,26 @@ public class NotFlying extends Birds {
             this.sortOfMotion = sortOfMotion;
         } else {
             this.sortOfMotion = "Хождение";
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        NotFlying notFlying = (NotFlying) o;
+        return getSortOfMotion().equals(notFlying.getSortOfMotion());
+    }
+
+    public static void addNotFlying(NotFlying[] notFlyings, NotFlying notFlying) {
+        for (int i = 0; i < notFlyings.length; i++) {
+            if (notFlyings[i]!=null && !notFlyings[i].equals(notFlying)) {
+                int newLength = notFlyings.length + 1;
+                Arrays.copyOf(notFlyings, newLength);
+                notFlyings[newLength - 1] = notFlying;
+                System.out.println(notFlyings[newLength-1]);
+            }
         }
     }
 }

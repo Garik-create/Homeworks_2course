@@ -1,10 +1,10 @@
 package inheritance_hw3;
 
-public class Mammals extends Animals {
+public abstract class Mammal extends Animal {
     private String livingEnvironment;
     private Integer speed;
 
-    public Mammals(String animalName, Integer age, String livingEnvironment, Integer speed) {
+    public Mammal(String animalName, Integer age, String livingEnvironment, Integer speed) {
         super(animalName, age);
         setLivingEnvironment(livingEnvironment);
         setSpeed(speed);
@@ -13,13 +13,10 @@ public class Mammals extends Animals {
 
     @Override
     public void eat() {
-        super.eat();
+        System.out.println("Найти пищу и поесть.");
     }
 
-    @Override
-    public void sleep() {
-        super.sleep();
-    }
+
 
     @Override
     public void go() {
@@ -48,5 +45,15 @@ public class Mammals extends Animals {
         } else {
             this.speed = 0;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Mammal mammal = (Mammal) o;
+        return getLivingEnvironment().equals(mammal.getLivingEnvironment())
+                && getSpeed().equals(mammal.getSpeed());
     }
 }

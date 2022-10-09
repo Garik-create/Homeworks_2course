@@ -1,26 +1,46 @@
 package inheritance_hw3;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
-//        Herbivores[] herbivores = new Herbivores[0];
-        Herbivores gazelle = new Herbivores("Газель", 1, "Саванна", 50,
+        Herbivore[] herbivores = new Herbivore[0];
+        Herbivore gazelle = new Herbivore("Газель", 1, "Саванна", 50,
                 "Траву");
-        Herbivores giraffe = new Herbivores("Жираф", 2, "Саванна", 30,
+        Herbivore giraffe = new Herbivore("Жираф", 2, "Саванна", 30,
                 "Листья");
-        Herbivores horse = new Herbivores("Лошадь", 3, "Степь", 60,
+        Herbivore horse = new Herbivore("Лошадь", 3, "Степь", 60,
                 "Сено");
 
-        Predators hyena = new Predators("Гиена", 1, "Саванна",
+        System.out.println();
+        Herbivore.addHerbivore(herbivores,gazelle);
+        Herbivore.addHerbivore(herbivores,giraffe);
+        Herbivore.addHerbivore(herbivores,horse);
+
+        Predator[] predators = new Predator[0];
+        Predator hyena = new Predator("Гиена", 1, "Саванна",
                 40, "Падаль");
-        Predators tiger = new Predators("Тигр", 2, "Саванна",
+        Predator tiger = new Predator("Тигр", 2, "Саванна",
                 50, "Мясо");
-        Predators bear = new Predators("Медведь", 3, "Лес", 60,
+        Predator bear = new Predator("Медведь", 3, "Лес", 60,
                 "Рыбу");
+        System.out.println();
+        Predator.addPredator(predators,hyena);
+        Predator.addPredator(predators,tiger);
+        Predator.addPredator(predators,bear);
 
-        Amphibians frog = new Amphibians("Лягушка", 1, "Вода");
-        Amphibians snake = new Amphibians("Уж пресноводный", 1, "Лес");
 
+        Amphibian[] amphibians = new Amphibian[0];
+        Amphibian frog = new Amphibian("Лягушка", 1, "Вода");
+        Amphibian snake = new Amphibian("Уж пресноводный", 1, "Лес");
+
+        System.out.println();
+        Amphibian.addAmphibian(amphibians,frog);
+        Amphibian.addAmphibian(amphibians,snake);
+
+
+        NotFlying[] notFlyings = new NotFlying[0];
         NotFlying peacock = new NotFlying("Павлин", 2, "Тропики",
                 "Ходит");
         NotFlying penguin = new NotFlying("Пингвин", 3, "Антарктика",
@@ -28,6 +48,13 @@ public class Main {
         NotFlying dodoBird = new NotFlying("Птица Додо", 4, "Тропики",
                 "Прыгает");
 
+        System.out.println();
+        NotFlying.addNotFlying(notFlyings,peacock);
+        NotFlying.addNotFlying(notFlyings,penguin);
+        NotFlying.addNotFlying(notFlyings,dodoBird);
+
+
+        Flying[] flyings = new Flying[0];
         Flying gull = new Flying("Чайка", 2, "Побережье",
                 "Летает");
         Flying albatross = new Flying("Альбатрос", 3, "Побережье",
@@ -35,34 +62,21 @@ public class Main {
         Flying falcon = new Flying("Сокол", 5, "Степь", "Летает");
 
         System.out.println();
-        System.out.println(gazelle);
-        System.out.println(giraffe);
-        System.out.println(horse);
-        System.out.println();
-        System.out.println(hyena);
-        System.out.println(tiger);
-        System.out.println(bear);
-        System.out.println();
-        System.out.println(frog);
-        System.out.println(snake);
-        System.out.println();
-        System.out.println(peacock);
-        System.out.println(penguin);
-        System.out.println(dodoBird);
-        System.out.println();
-        System.out.println(gull);
-        System.out.println(albatross);
-        System.out.println(falcon);
+        Flying.addFlying(flyings,gull);
+        Flying.addFlying(flyings,albatross);
+        Flying.addFlying(flyings,falcon);
     }
 
 
 
-    /*public static void addHerbivores(Herbivores[] herbivores) {
-        for (int i = 0; i < herbivores.length; i++) {
-            if (herbivores[i] == null) {
-                herbivores[i] = new Herbivores()
-            }
-        }
-    }*/
+//    public static void addHerbivore(Herbivore[] herbivores, Herbivore herbivore) {
+//        for (int i = 0; i < herbivores.length; i++) {
+//            if (herbivores[i]!=null && !herbivores[i].equals(herbivore)) {
+//                int newLength = herbivores.length + 1;
+//                Arrays.copyOf(herbivores, newLength);
+//                herbivores[newLength - 1] = herbivore;
+//            }
+//        }
+//    }
 }
 
