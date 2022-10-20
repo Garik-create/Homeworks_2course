@@ -2,9 +2,9 @@ package exeptions_hw;
 
 public class Main {
     public static void main(String[] args) {
-        String login = "w/";
-        String password = "Gbnfybt220";
-        String confirmPassword = "Gbnfybt220";
+        String login = "w";
+        String password = "QWErty220";
+        String confirmPassword = "QWErty220";
 
         if (Data.checkCredentials(login, password, confirmPassword)) {
             System.out.println("Ok!");

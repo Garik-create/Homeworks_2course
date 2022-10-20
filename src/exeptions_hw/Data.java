@@ -15,16 +15,17 @@ public class Data {
             System.out.println(e.getMessage());
             return false;
         }
-        if (checkConfirmPassword(confirmPassword, password)) {
-            return true;
-        } else {
+        try {
+            checkConfirmPassword(confirmPassword, password);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());;
             return false;
         }
+        return true;
     }
 
-    public static boolean checkLogin(String login) throws WrongLoginException {
+    public static void checkLogin(String login) throws WrongLoginException {
         if (checking(login)) {
-            return true;
         } else {
             throw new WrongLoginException("Login is not correct!");
         }
@@ -55,9 +56,8 @@ public class Data {
         return true;
     }
 
-    public static boolean checkConfirmPassword(String confirmPassword, String password) {
+    public static void checkConfirmPassword(String confirmPassword, String password) {
         if (confirmPassword.equals(password)) {
-            return true;
         } else {
             throw new RuntimeException("Пароли не совпадают!");
         }
